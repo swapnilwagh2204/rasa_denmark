@@ -1,0 +1,76 @@
+[
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Action",
+        "importPath": "rasa_sdk",
+        "description": "rasa_sdk",
+        "isExtraImport": true,
+        "detail": "rasa_sdk",
+        "documentation": {}
+    },
+    {
+        "label": "Tracker",
+        "importPath": "rasa_sdk",
+        "description": "rasa_sdk",
+        "isExtraImport": true,
+        "detail": "rasa_sdk",
+        "documentation": {}
+    },
+    {
+        "label": "CollectingDispatcher",
+        "importPath": "rasa_sdk.executor",
+        "description": "rasa_sdk.executor",
+        "isExtraImport": true,
+        "detail": "rasa_sdk.executor",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "ActionRespondCoroanStateCity",
+        "kind": 6,
+        "importPath": "actions",
+        "description": "actions",
+        "peekOfCode": "class ActionRespondCoroanStateCity(Action):\n    def name(self):\n        return \"action_corona_state\"\n    def run(self, dispatcher, tracker, domain):\n        # last_message = tracker.latest_message.get(\"text\", \"\")\n        response = requests.get(\n            \"https://api.covid19india.org/data.json\").json()\n        print(\"Length \", len(response[\"statewise\"]))\n        message = \"Please enter correct STATE name\"\n        entities = tracker.latest_message['entities']",
+        "detail": "actions",
+        "documentation": {}
+    }
+]
