@@ -38,19 +38,15 @@ class ActionRespondCoroanStateCity(Action):
 
         response = requests.get(
             "https://api.covid19india.org/data.json").json()
-        print("Length ", len(response["statewise"]))
+        # print(response["statewise"])
+        # print("Length ", len(response["statewise"]))
         message = "Please enter correct STATE name"
 
         entities = tracker.latest_message['entities']
-        print("Last Message Now ", entities)
         state = None
         for e in entities:
             if e['entity'] == "state":
                 state = e['value']
-
-        print("State ", state)
-        #state = state.lower()
-        print("State ", state)
         if state == "corona":
             state = "Total"
         if state == "india":
@@ -62,11 +58,39 @@ class ActionRespondCoroanStateCity(Action):
             message = "Please enter correct STATE name"
             for data in response["statewise"]:
                 if data["state"] == state.title():
-                    print(data)
                     message = "Active: "+data["active"] + " Confirmed: " + data["confirmed"] + \
                         " Recovered: " + data["recovered"] + \
                         " On "+data["lastupdatedtime"]
 
+        dispatcher.utter_message(message)
+
+        return []
+
+
+class ActionRespondDenmarkInfo(Action):
+    def name(self):
+        return "action_denmark_data"
+
+    def run(self, dispatcher, tracker, domain):
+
+        import json
+
+        with open('data.json') as f:
+            data = json.load(f)
+
+        entities = tracker.latest_message['entities']
+        year = None
+        for e in entities:
+            if e['entity'] == "year":
+                year = e['value']
+        if(year != None):
+            message = "Please enter correct year name"
+            for data in data:
+                if data["Year"] == int(year):
+                    message = f"Year: {data['Year']}" + "\n" + f"TotalPopulation: : {data['TotalPopulation']}" + "\n" + \
+                        f"GrowthRate:{data['TotalPopulation']}" + "\n"+f"Density:{data['Density']}" + \
+                        "\n" + \
+                        f"TotalPopulationRank:{data['TotalPopulationRank']}"
         dispatcher.utter_message(message)
 
         return []

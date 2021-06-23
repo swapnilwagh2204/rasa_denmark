@@ -1,31 +1,21 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
-- corona_intro:
-    use_entities: true
-- corona_spread:
-    use_entities: true
-- corona_food_spread:
-    use_entities: true
-- warm_weather:
-    use_entities: true
-- high_risk:
-    use_entities: true
-- corona_state:
-    use_entities: true
+- greet
+- corona_state
+- goodbye
+- bot_challenge
+- corona_intro
+- corona_spread
+- corona_food_spread
+- warm_weather
+- high_risk
+- denmark_data
 entities:
 - state
-slots: {}
+- year
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -50,22 +40,21 @@ responses:
   - text: Older adults and people of any age who have serious underlying medical conditions may be at higher risk for more serious complications from COVID-19. These people who may be at higher risk of getting very sick from this illness, includes; Older adults, People who have serious underlying medical conditions like... Heart disease, Diabetes, Lung disease,
 actions:
 - action_corona_state
-- utter_greet
-- utter_did_that_help
-- utter_goodbye
-- utter_iamabot
-- utter_corona_intro
-- utter_corona_spread
-- utter_corona_food_spread
-- utter_warm_weather
-- utter_high_risk
+- action_denmark_data
+- bot_challenge
+- corona_food_spread
 - corona_intro
 - corona_spread
-- corona_food_spread
 - goodbye
-- high_risk
-- bot_challenge
-- warm_weather
 - greet
-forms: {}
-e2e_actions: []
+- high_risk
+- utter_corona_food_spread
+- utter_corona_intro
+- utter_corona_spread
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_high_risk
+- utter_iamabot
+- utter_warm_weather
+- warm_weather

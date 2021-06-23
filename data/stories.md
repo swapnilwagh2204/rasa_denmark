@@ -34,3 +34,9 @@
 ## corona_state_city
 * corona_state
    - action_corona_state
+
+## denmark_stat_data
+* denmark_data
+   - action_denmark_data
+
+   
