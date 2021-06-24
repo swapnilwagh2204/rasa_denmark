@@ -1,7 +1,7 @@
 Steps to install the rasa chatbot:
 
-  pip3 install -r requirement.txt
-  pip3 install rasa-x --extra-index-url https://pypi.rasa.com/simple
+    pip3 install -r requirement.txt
+    pip3 install rasa-x --extra-index-url https://pypi.rasa.com/simple
 
 run the rasa actions server: rasa run actions
 
